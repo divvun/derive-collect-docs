@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Pascal Hertleif <pascal@technocreatives.com>"]
 edition = "2018"
 license = "Apache-2.0 OR MIT"
-repository = "https://github.com/divvun/kbdgen"
+repository = "https://github.com/divvun/derive-collect-docs"
 
 [lib]
 proc-macro = true
