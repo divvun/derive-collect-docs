@@ -1,5 +1,8 @@
 # Collect documentation from Rust code
 
+[![Latest version](https://img.shields.io/crates/v/derive-collect-docs.svg)](https://crates.io/crates/derive-collect-docs)
+[![Documentation](https://docs.rs/derive-collect-docs/badge.svg)](https://docs.rs/derive-collect-docs)
+
 This little helper library contains a `CollectDocs` derive macro.
 Add it to your structs like this:
 
