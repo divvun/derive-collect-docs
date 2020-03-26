@@ -1,7 +1,7 @@
 use derive_collect_docs::CollectDocs;
 use std::collections::HashMap;
 
-/// Very essential type to out application
+/// Very essential type to our application
 #[example(
     yaml,
     "

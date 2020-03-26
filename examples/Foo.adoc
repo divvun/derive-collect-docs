@@ -3,7 +3,7 @@
 
 = Foo
 
-Very essential type to out application
+Very essential type to our application
 
 
 .Example

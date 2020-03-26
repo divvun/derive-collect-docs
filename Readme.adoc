@@ -5,7 +5,31 @@ Add it to your structs like this:
 
 [source,rust]
 ----
-include::examples/foo.rs[]
+/// Very essential type to our application
+#[example(
+    yaml,
+    "
+    bar: 42
+    baz:
+      great_examples_so_far: 2
+    "
+)]
+#[derive(Debug, serde::Deserialize, CollectDocs)]
+pub struct Foo {
+    /// Amount of pressure to apply
+    ///
+    /// CAUTION: Will be renamed to appropriate SI unit in next release.
+    pub bar: usize,
+    /// Description of this Foo
+    #[example(
+        yaml,
+        "
+    baz:
+      great_examples_so_far: 2
+    "
+    )]
+    pub baz: HashMap<String, i32>,
+}
 ----
 
 And get documentation like this
@@ -38,3 +62,22 @@ test test_Foo_example_0 ... ok
 
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ---
+
+NOTE: You need to add both serde and serde_yaml to your own dependencies.
+
+== License
+
+Licensed under either of
+
+* Apache License, Version 2.0 (link:LICENSE-APACHE[LICENSE-APACHE] or http://www.apache.org/licenses/LICENSE-2.0)
+* MIT license (link:LICENSE-MIT[LICENSE-MIT] or http://opensource.org/licenses/MIT)
+
+at your option.
+
+== Contribution
+
+Fork and PR on Github.
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any
+additional terms or conditions.
