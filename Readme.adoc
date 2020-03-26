@@ -61,7 +61,7 @@ test test_Foo_baz_example_0 ... ok
 test test_Foo_example_0 ... ok
 
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
----
+----
 
 NOTE: You need to add both serde and serde_yaml to your own dependencies.
 
