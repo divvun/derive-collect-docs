@@ -1,10 +1,9 @@
-= Collect documentation from Rust code
+# Collect documentation from Rust code
 
 This little helper library contains a `CollectDocs` derive macro.
 Add it to your structs like this:
 
-[source,rust]
-----
+```rust
 /// Very essential type to our application
 #[example(
     yaml,
@@ -30,22 +29,23 @@ pub struct Foo {
     )]
     pub baz: HashMap<String, i32>,
 }
-----
+```
 
-And get documentation like this
-(with the correct heading that does not work in quoted asciidoc):
+This will generate a [AsciiDoc](https://asciidoctor.org/docs/what-is-asciidoc/)
+file called `Foo.adoc` (using the struct name).
+By default this will be written to `./docs/generated`,
+but you change it by setting the `COLLECT_DOCS_TARGET` environment variable.
 
-====
-include::examples/Foo.adoc[]
-====
+The rendered document looks like [this](examples/Foo.adoc)
+and can be included in your AsciiDoc documentation.
 
-== Examples
+## Examples
 
 Examples are added in separate attributes
 that specify the file type followed by the content.
 They will be included as code blocks with the heading "Example".
 
-=== Tests
+### Tests
 
 Examples in YAML format will also be turned into tests
 that exercise that the given content can be parsed by
@@ -54,30 +54,28 @@ For structs, you should give it the full content of the struct,
 for fields you neded to also include the field name
 in the formatting serde expects (i.e., respecting `#[serde(rename="other_name")]`).
 
-[source,console]
-----
+```console
 running 2 tests
 test test_Foo_baz_example_0 ... ok
 test test_Foo_example_0 ... ok
 
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
-----
+```
 
 NOTE: You need to add both serde and serde_yaml to your own dependencies.
 
-== License
+## License
 
 Licensed under either of
 
-* Apache License, Version 2.0 (link:LICENSE-APACHE[LICENSE-APACHE] or http://www.apache.org/licenses/LICENSE-2.0)
-* MIT license (link:LICENSE-MIT[LICENSE-MIT] or http://opensource.org/licenses/MIT)
+ * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+ * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
 
 at your option.
 
-== Contribution
+### Contribution
 
-Fork and PR on Github.
-
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any
-additional terms or conditions.
+Unless you explicitly state otherwise, any contribution intentionally
+submitted for inclusion in the work by you, as defined in the Apache-2.0
+license, shall be dual licensed as above, without any additional terms or
+conditions.
